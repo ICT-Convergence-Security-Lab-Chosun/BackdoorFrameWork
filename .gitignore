@@ -23,7 +23,6 @@ hyperopt/
 *.ckpt
 datasets/SentimentAnalysis
 
-data
 poison_data
 test.sh
 .idea

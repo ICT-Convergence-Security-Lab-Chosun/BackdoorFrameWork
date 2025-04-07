@@ -93,9 +93,32 @@ class SST2Processor(DataProcessor):
                 example = (text_a, int(example_json['label']), 0)
                 examples.append(example)
         return examples
+    
+class CLIENTSST2Processor(DataProcessor):
+    """
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.labels = ["negative", "positive"]
+        self.path = "./datasets/SentimentAnalysis/SST-2/client"
+
+    def get_examples(self, data_dir, split):
+        examples = []
+        if data_dir is None:
+            data_dir = self.path
+        path = os.path.join(data_dir,"{}.tsv".format(split))
+        with open(path, 'r') as f:
+            reader = csv.DictReader(f, delimiter='\t')
+            for idx, example_json in enumerate(reader):
+                text_a = example_json['sentence'].strip()
+                example = (text_a, int(example_json['label']), 0)
+                examples.append(example)
+        return examples
 
 PROCESSORS = {
     "amazon" : AmazonProcessor,
     "imdb": ImdbProcessor,
     "sst-2": SST2Processor,
+    "clientsst-2": CLIENTSST2Processor
 }

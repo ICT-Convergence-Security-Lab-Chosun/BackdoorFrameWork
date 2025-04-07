@@ -4,7 +4,7 @@ from datasets import load_dataset
 
 
 
-def save_data(self, dataset, path, split):
+def save_data(dataset, path, split):
     if path is not None:
         os.makedirs(path, exist_ok=True)
         dataset = pd.DataFrame(dataset)

@@ -23,8 +23,12 @@ if __name__=='__main__':
 
         # Load the validation and test datasets from SetFit/sst2
         setfit_dataset = load_dataset("SetFit/sst2")
-        df_dev = pd.DataFrame(setfit_dataset["validation"])[["sentence", "label"]]
-        df_test = pd.DataFrame(setfit_dataset["test"])[["sentence", "label"]]
+        df_dev = pd.DataFrame(setfit_dataset["validation"])[["text", "label"]]
+        df_test = pd.DataFrame(setfit_dataset["test"])[["text", "label"]]
+
+        # If you want to keep the same column names across files, you can rename them:
+        df_dev = df_dev.rename(columns={"text": "sentence"})
+        df_test = df_test.rename(columns={"text": "sentence"})
 
         # Define output file paths
         train_file = os.path.join(output_dir, "train.tsv")

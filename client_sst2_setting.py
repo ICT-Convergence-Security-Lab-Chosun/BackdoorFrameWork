@@ -2,8 +2,6 @@ import os
 import pandas as pd
 from datasets import load_dataset
 
-
-
 def save_data(dataset, path, split):
     if path is not None:
         os.makedirs(path, exist_ok=True)

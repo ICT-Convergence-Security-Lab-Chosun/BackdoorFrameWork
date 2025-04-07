@@ -2,6 +2,8 @@ import os
 import pandas as pd
 from datasets import load_dataset
 
+
+
 def save_data(self, dataset, path, split):
     if path is not None:
         os.makedirs(path, exist_ok=True)
@@ -49,6 +51,7 @@ if __name__=='__main__':
         print("Data already exists in the specified directory.")
     else:
         # Load the dataset from clientsst-2
+        from openbackdoor import load_dataset
         target_dataset = load_dataset(name="clientsst-2")
         # Save the datasets in the specified format
         save_data(target_dataset["train"], output_dir, "train-clean")

@@ -1,4 +1,12 @@
 # OpenBackdoor
+Edit This Program as Federated Learning
+In Progress..
+Not Final Version Now.
+
+Update Need
+1. Fit Client's Model in same way with attack.
+2. Make Aggregation Rule to Update Global Model.
+3. Adding Attack & Defense Mechanism.
 
 
 <p align="center">
